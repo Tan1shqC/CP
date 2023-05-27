@@ -24,58 +24,16 @@ vector<int> a;
 
 bool check(int i)
 {
-    return (a[i] > a[i - 1]);
+    return true;
 }
 
 void solve()
 {
-    int n, t, m, k;
+    int n, m, t, k;
     int i, j;
     int q;
 
-    cin >> n >> q;
-    a.resize(n);
-    for (i = 0; i < n; ++i)
-    {
-        cin >> a[i];
-    }
-
-    int lo = 1, hi = n - 1, max_index = 0, max;
-    while (lo <= hi)
-    {
-        int mid = (lo + hi) / 2;
-        if (check(mid))
-        {
-            max_index = mid;
-            lo = mid + 1;
-        }
-        else
-        {
-            hi = mid - 1;
-        }
-    }
-    max = a[max_index];
-
-    for (i = 0; i < q; ++i)
-    {
-        cin >> k;
-        if(k  == max)
-        {
-            cout << max_index << '\n';
-            continue;
-        }
-
-        int ans;
-        ans = lower_bound(a.begin(), a.begin() + max_index, k) - a.begin();
-        if (ans != max_index && a[ans] == k)
-            cout << ans << ' ';
-
-        ans = lower_bound(a.begin() + max_index + 1, a.end(), k, [] (int a, int b) { return (a > b); }) - a.begin();
-        if (ans != (n + 1) && a[ans] == k)
-            cout << ans;
-
-        cout << '\n';
-    }
+    cin >> n;
 }
 
 signed main()
